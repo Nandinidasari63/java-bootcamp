@@ -22,4 +22,10 @@ class ChanceTest {
         assertThrows(InvalidChanceException.class, ()->Chance.createChance(100f));
     }
 
+    @Test
+    void shouldReturnNotHappeningChance() {
+        Chance chance = assertDoesNotThrow(() -> Chance.createChance(0.4f));
+        Chance expectedChance = assertDoesNotThrow(() -> Chance.createChance(0.6f));
+       assertEquals(expectedChance, chance.not());
+    }
 }

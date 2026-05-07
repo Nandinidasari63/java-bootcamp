@@ -16,6 +16,11 @@ public class Chance {
         return new Chance(chance);
     }
 
+    public Chance not(){
+        return new Chance(1-chance);
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
