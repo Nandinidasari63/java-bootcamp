@@ -34,12 +34,22 @@ class ChanceTest {
     }
 
     @Test
-    void shouldPerformOrOperation() throws InvalidChanceException {
+    void shouldPerformOROperation() throws InvalidChanceException {
         Chance chance1 = Chance.createChance(0.5f);
         Chance chance2 = Chance.createChance(0.4f);
         Chance expectedChance = Chance.createChance(0.70f);
 
         Chance result = chance1.or(chance2);
+        assertEquals(expectedChance, result);
+    }
+
+    @Test
+    void shouldPerformAND() throws InvalidChanceException {
+        Chance chance1 = Chance.createChance(0.3f);
+        Chance chance2 = Chance.createChance(0.3f);
+        Chance expectedChance = Chance.createChance(0.09f);
+
+        Chance result = chance1.and(chance2);
         assertEquals(expectedChance, result);
     }
 }

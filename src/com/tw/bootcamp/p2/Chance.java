@@ -33,7 +33,21 @@ public class Chance {
         return Objects.hashCode(chance);
     }
 
-    public Chance or(Chance another) {
-        return new Chance( chance + another.chance - chance * another.chance);
+    @Override
+    public String toString() {
+        return "Chance{" +
+                "chance=" + chance +
+                '}';
     }
+
+    public Chance or(Chance another) {
+        return (this.not().and(another.not())).not();
+    }
+
+
+    public Chance and(Chance another) {
+        return new Chance(chance * another.chance);
+    }
+
+
 }
