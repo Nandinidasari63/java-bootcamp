@@ -1,7 +1,7 @@
 package com.tw.bootcamp.p1;
 
 
-public class Rectangle {
+public class Rectangle implements Polygon {
     private final float length;
     private final float breadth;
 
@@ -10,10 +10,12 @@ public class Rectangle {
         this.breadth = breadth;
     }
 
+    @Override
     public float calculateArea() {
         return length * breadth;
     }
 
+    @Override
     public float calculatePerimeter() {
         return 2 * (length + breadth);
     }
