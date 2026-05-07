@@ -1,4 +1,4 @@
-package com.tw.bootcamp.problem1;
+package com.tw.bootcamp.p1;
 
 
 public class Rectangle {
@@ -12,5 +12,9 @@ public class Rectangle {
 
     public float calculateArea() {
         return length * breadth;
+    }
+
+    public float calculatePerimeter() {
+        return 2 * (length + breadth);
     }
 }
