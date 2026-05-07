@@ -16,8 +16,8 @@ public class Chance {
         return new Chance(chance);
     }
 
-    public Chance not(){
-        return new Chance(1-chance);
+    public Chance not() throws InvalidChanceException {
+        return createChance(1-chance);
     }
 
 
@@ -40,14 +40,16 @@ public class Chance {
                 '}';
     }
 
-    public Chance or(Chance another) {
+    public Chance orDemorgans(Chance another) throws InvalidChanceException {
         return (this.not().and(another.not())).not();
     }
 
-
-    public Chance and(Chance another) {
-        return new Chance(chance * another.chance);
+    public Chance or(Chance another) throws InvalidChanceException {
+        return createChance(( chance + another.chance - chance * another.chance));
     }
 
+    public Chance and(Chance another) throws InvalidChanceException {
+        return createChance(chance * another.chance);
+    }
 
 }

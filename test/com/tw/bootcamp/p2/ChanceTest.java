@@ -29,8 +29,18 @@ class ChanceTest {
         Chance chanceOfGettingTails = Chance.createChance(0.5f);
         Chance expectedChance = Chance.createChance(0.75f);
 
-        Chance chanceOfGettingAtleastOneTail = chanceOfGettingTails.or(chanceOfGettingTails);
+        Chance chanceOfGettingAtleastOneTail = chanceOfGettingTails.orDemorgans(chanceOfGettingTails);
         assertEquals(expectedChance, chanceOfGettingAtleastOneTail);
+    }
+
+    @Test
+    void shouldPerformDemorgansOROperation() throws InvalidChanceException {
+        Chance chance1 = Chance.createChance(0.5f);
+        Chance chance2 = Chance.createChance(0.4f);
+        Chance expectedChance = Chance.createChance(0.70f);
+
+        Chance result = chance1.orDemorgans(chance2);
+        assertEquals(expectedChance, result);
     }
 
     @Test
@@ -44,7 +54,7 @@ class ChanceTest {
     }
 
     @Test
-    void shouldPerformAND() throws InvalidChanceException {
+    void shouldPerformANDOperation() throws InvalidChanceException {
         Chance chance1 = Chance.createChance(0.3f);
         Chance chance2 = Chance.createChance(0.3f);
         Chance expectedChance = Chance.createChance(0.09f);

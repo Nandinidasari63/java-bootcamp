@@ -10,11 +10,14 @@ public class Rectangle implements Polygon {
         this.breadth = breadth;
     }
 
-    public static Rectangle createRectangle(float length, float breadth)  {
+    public static Rectangle createRectangle(float length, float breadth) throws InvalidDimensionsException {
+        if(length < 1 || breadth < 1){
+            throw new InvalidDimensionsException("Invalid dimensions %.2f %.2f".formatted(length, breadth));
+        }
         return new Rectangle(length, breadth);
     }
 
-    public static Rectangle createSquare(float side)  {
+    public static Rectangle createSquare(float side) throws InvalidDimensionsException {
         return createRectangle(side,side);
     }
 
