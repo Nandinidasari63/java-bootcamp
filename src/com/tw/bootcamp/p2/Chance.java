@@ -32,4 +32,8 @@ public class Chance {
     public int hashCode() {
         return Objects.hashCode(chance);
     }
+
+    public Chance or(Chance another) {
+        return new Chance( chance + another.chance - chance * another.chance);
+    }
 }
