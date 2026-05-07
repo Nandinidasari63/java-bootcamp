@@ -5,3 +5,4 @@ public class Probability {
         return (float) favourableOutcomes /possibleOutcomes;
     }
 }
+
