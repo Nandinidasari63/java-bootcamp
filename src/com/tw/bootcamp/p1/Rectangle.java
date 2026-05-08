@@ -15,10 +15,10 @@ public class Rectangle implements Polygon {
         if(length < 1 || breadth < 1){
             throw new InvalidDimensionsException("Invalid dimensions %.2f %.2f".formatted(length, breadth));
         }
-        return createRectangleInternally(length, breadth);
+        return getRectangle(length, breadth);
     }
 
-    private static Rectangle createRectangleInternally(float length, float breadth) {
+    private static Rectangle getRectangle(float length, float breadth) {
         return new Rectangle(length, breadth);
     }
 
