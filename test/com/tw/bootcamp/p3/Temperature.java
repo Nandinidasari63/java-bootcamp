@@ -18,7 +18,7 @@ public class Temperature {
     }
 
     public static Temperature createFahrenheit(double value) {
-        return createTemperature((value - 32) * 5 / 9);
+        return createTemperature((value - 32) * 5 /  9);
     }
 
     @Override
