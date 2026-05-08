@@ -9,23 +9,26 @@ public class Length {
         this.value = value;
     }
 
-    private static Length createLength(double value) {
+    private static Length createLength(double value) throws InvalidLengthException {
+        if (value < 0) {
+            throw new InvalidLengthException("Invalid Length");
+        }
         return new Length(value);
     }
 
-    public static Length createCm(double value) {
+    public static Length createCm(double value) throws InvalidLengthException {
         return createLength(value);
     }
 
-    public static Length createFeet(double value) {
+    public static Length createFeet(double value) throws InvalidLengthException {
         return createLength(value * 30.48);
     }
 
-    public static Length createInches(double value) {
+    public static Length createInches(double value) throws InvalidLengthException {
         return createLength(value * 2.54);
     }
 
-    public static Length createMm(double value) {
+    public static Length createMm(double value) throws InvalidLengthException {
         return createLength(value * 0.1);
     }
 
@@ -41,7 +44,7 @@ public class Length {
         return Objects.hashCode(value);
     }
 
-    public Length add(Length length) {
+    public Length add(Length length) throws InvalidLengthException {
         return createLength(value + length.value);
     }
 

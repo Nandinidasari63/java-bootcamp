@@ -10,15 +10,18 @@ public class Volume {
         this.value = value;
     }
 
-    private static Volume createVolume(double value) {
+    private static Volume createVolume(double value) throws Throwable {
+        if (value < 0) {
+            throw new InvalidVolumeException("Invalid Volume");
+        }
         return new Volume(value);
     }
 
-    public static Volume createGallon(double value) {
+    public static Volume createGallon(double value) throws Throwable {
         return createVolume(value * 3.78);
     }
 
-    public static Volume createLitre(double value) {
+    public static Volume createLitre(double value) throws Throwable {
         return createVolume(value);
     }
 
