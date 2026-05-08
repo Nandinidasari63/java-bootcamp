@@ -2,22 +2,22 @@ package com.tw.bootcamp.p3;
 
 import java.util.Objects;
 
-public class Feet {
-    private final float value;
+public class Millimeter {
+    private final double value;
 
-    public Feet(float value) {
+    public Millimeter(double value) {
         this.value = value;
     }
 
     public Centimeter toBase(){
-        return new Centimeter(value * 30.48);
+        return new Centimeter(value * 0.1);
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Feet feet = (Feet) o;
-        return Float.compare(value, feet.value) == 0;
+        Millimeter that = (Millimeter) o;
+        return Double.compare(value, that.value) == 0;
     }
 
     @Override

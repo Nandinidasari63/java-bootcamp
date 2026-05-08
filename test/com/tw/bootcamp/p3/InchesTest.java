@@ -11,4 +11,16 @@ class InchesTest {
       Inches inches = new Inches(12f);
       assertEquals(new Inches(12f), inches);
     }
+
+    @Test
+    void shouldConvertToBase() {
+        Inches inches = new Inches(1);
+        assertEquals(new Centimeter(2.54), inches.toBase());
+    }
+
+    @Test
+    void twoInchesIsEqualTo5Cm() {
+        Inches twoInches = new Inches(2);
+        assertEquals(new Centimeter(5.08), twoInches.toBase());
+    }
 }

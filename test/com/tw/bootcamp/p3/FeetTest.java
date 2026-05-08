@@ -10,4 +10,11 @@ class FeetTest {
         Feet feet = new Feet(12f);
         assertEquals(new Feet(12f), feet);
     }
+
+    @Test
+    void shouldConvertToBase() {
+        Feet feet = new Feet(1f);
+        assertEquals(new Centimeter(30.48), feet.toBase());
+    }
+
 }

@@ -9,6 +9,10 @@ public class Inches {
         this.value = value;
     }
 
+    public Centimeter toBase(){
+            return new Centimeter(value * 2.54);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
