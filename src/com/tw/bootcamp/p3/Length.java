@@ -41,4 +41,7 @@ public class Length {
         return Objects.hashCode(value);
     }
 
+    public Length add(Length length) {
+        return createLength(value + length.value);
+    }
 }

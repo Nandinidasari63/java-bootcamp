@@ -22,5 +22,5 @@ class VolumeTest {
         Volume twoGallon = Volume.createGallon(2);
         assertEquals(Volume.createLitre(7.56), twoGallon);
     }
-    
+
 }

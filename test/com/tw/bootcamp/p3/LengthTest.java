@@ -44,4 +44,12 @@ class LengthTest {
         Length oneCentimeter = Length.createCm(1);
         assertEquals(Length.createMm(10), oneCentimeter);
     }
+
+    @Test
+    void shouldAddTwoInches() {
+        Length twoInches = Length.createInches(2);
+        Length sum = twoInches.add(Length.createInches(2));
+        assertEquals(Length.createInches(4), sum);
+
+    }
 }
