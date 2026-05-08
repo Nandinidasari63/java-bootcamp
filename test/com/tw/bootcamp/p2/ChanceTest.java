@@ -2,12 +2,13 @@ package com.tw.bootcamp.p2;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ChanceTest {
     @Test
     void shouldCreateChance() throws InvalidChanceException {
-        Chance chance =  Chance.createChance(0.4f);
+        Chance chance = Chance.createChance(0.4f);
         assertEquals(Chance.createChance(0.4f), chance);
     }
 
@@ -20,8 +21,8 @@ class ChanceTest {
     @Test
     void shouldReturnNotHappeningChance() throws InvalidChanceException {
         Chance chance = Chance.createChance(0.4f);
-        Chance expectedChance =  Chance.createChance(0.6f);
-       assertEquals(expectedChance, chance.not());
+        Chance expectedChance = Chance.createChance(0.6f);
+        assertEquals(expectedChance, chance.not());
     }
 
     @Test

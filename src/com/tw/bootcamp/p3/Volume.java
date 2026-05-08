@@ -14,11 +14,11 @@ public class Volume {
         return new Volume(value);
     }
 
-    public  static  Volume createGallon(double value){
+    public static Volume createGallon(double value) {
         return createVolume(value * 3.78);
     }
 
-    public static Volume createLitre(double value){
+    public static Volume createLitre(double value) {
         return createVolume(value);
     }
 

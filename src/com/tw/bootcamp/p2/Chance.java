@@ -9,20 +9,20 @@ public class Chance {
         this.chance = chance;
     }
 
-    private Chance createInternal(float chance){
-        return  new Chance(chance);
+    private Chance createInternal(float chance) {
+        return new Chance(chance);
     }
 
 
     public static Chance createChance(float chance) throws InvalidChanceException {
-        if(chance < 0 || chance > 1){
+        if (chance < 0 || chance > 1) {
             throw new InvalidChanceException("invalid chance %s".formatted(chance));
         }
         return new Chance(chance);
     }
 
-    public Chance not()  {
-        return createInternal(1-chance);
+    public Chance not() {
+        return createInternal(1 - chance);
     }
 
 
@@ -45,15 +45,15 @@ public class Chance {
                 '}';
     }
 
-    public Chance orDemorgans(Chance another)  {
+    public Chance orDemorgans(Chance another) {
         return (this.not().and(another.not())).not();
     }
 
-    public Chance or(Chance another)  {
-        return createInternal(( chance + another.chance - chance * another.chance));
+    public Chance or(Chance another) {
+        return createInternal((chance + another.chance - chance * another.chance));
     }
 
-    public Chance and(Chance another)  {
+    public Chance and(Chance another) {
         return createInternal(chance * another.chance);
     }
 

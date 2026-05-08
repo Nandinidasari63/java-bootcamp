@@ -9,7 +9,7 @@ public class Length {
         this.value = value;
     }
 
-    private static Length createLength(double value){
+    private static Length createLength(double value) {
         return new Length(value);
     }
 
@@ -18,15 +18,15 @@ public class Length {
     }
 
     public static Length createFeet(double value) {
-        return  createLength(value * 30.48);
+        return createLength(value * 30.48);
     }
 
     public static Length createInches(double value) {
-        return  createLength(value * 2.54);
+        return createLength(value * 2.54);
     }
 
-    public  static  Length createMm(double value){
-        return   createLength(0.1 * value);
+    public static Length createMm(double value) {
+        return createLength(value * 0.1);
     }
 
     @Override
@@ -43,5 +43,12 @@ public class Length {
 
     public Length add(Length length) {
         return createLength(value + length.value);
+    }
+
+    @Override
+    public String toString() {
+        return "Length{" +
+                "value=" + value +
+                '}';
     }
 }

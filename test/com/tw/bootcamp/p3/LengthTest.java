@@ -2,25 +2,25 @@ package com.tw.bootcamp.p3;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LengthTest {
     @Test
     void shouldCreateInch() {
         Length inch = Length.createInches(1);
-        assertEquals(Length.createInches(1),inch );
+        assertEquals(Length.createInches(1), inch);
     }
 
     @Test
     void shouldCreateFeet() {
         Length feet = Length.createFeet(2);
-        assertEquals(Length.createFeet(2),feet );
+        assertEquals(Length.createFeet(2), feet);
     }
 
     @Test
     void shouldCreateCm() {
         Length twoCentimeters = Length.createCm(2);
-        assertEquals(Length.createCm(2),twoCentimeters );
+        assertEquals(Length.createCm(2), twoCentimeters);
     }
 
     @Test
@@ -50,6 +50,13 @@ class LengthTest {
         Length twoInches = Length.createInches(2);
         Length sum = twoInches.add(Length.createInches(2));
         assertEquals(Length.createInches(4), sum);
+    }
 
+
+    @Test
+    void twoAndAHalfCmAddedToTwoInchesIsEqualToThreeInches() {
+        Length twoInches = Length.createInches(2);
+        Length twoAndAHalfCm = Length.createCm(2.54);
+        assertEquals(Length.createInches(3), twoInches.add(twoAndAHalfCm));
     }
 }

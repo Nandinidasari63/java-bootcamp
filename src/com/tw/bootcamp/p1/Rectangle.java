@@ -9,10 +9,10 @@ public class Rectangle implements Polygon {
         this.length = length;
         this.breadth = breadth;
     }
-    
+
 
     public static Rectangle createRectangle(float length, float breadth) throws InvalidDimensionsException {
-        if(length < 1 || breadth < 1){
+        if (length < 1 || breadth < 1) {
             throw new InvalidDimensionsException("Invalid dimensions %.2f %.2f".formatted(length, breadth));
         }
         return getRectangle(length, breadth);
@@ -23,7 +23,7 @@ public class Rectangle implements Polygon {
     }
 
     public static Rectangle createSquare(float side) throws InvalidDimensionsException {
-        return createRectangle(side,side);
+        return createRectangle(side, side);
     }
 
     @Override
