@@ -29,7 +29,7 @@ public class Volume {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Volume volume = (Volume) o;
-        return Double.compare(value, volume.value) == 0;
+        return Math.abs(value - volume.value) < 0.1;
     }
 
     @Override
@@ -42,5 +42,9 @@ public class Volume {
         return "Volume{" +
                 "value=" + value +
                 '}';
+    }
+
+    public Volume add(Volume other) throws Throwable {
+        return createVolume(value + other.value);
     }
 }

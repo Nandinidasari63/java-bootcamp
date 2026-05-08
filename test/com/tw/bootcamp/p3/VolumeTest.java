@@ -31,4 +31,10 @@ class VolumeTest {
         assertEquals(Volume.createLitre(7.56), twoGallon);
     }
 
+    @Test
+    void sumOfOneLitreAndOneGallonIsApproximately5Litre() throws Throwable {
+        Volume oneLitre = Volume.createLitre(1);
+        Volume oneGallon = Volume.createGallon(1);
+        assertEquals(Volume.createLitre(4.779), oneLitre.add(oneGallon));
+    }
 }
