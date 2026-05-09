@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class ParkingLot {
     private final int noOfSlots;
-    ArrayList<Car> slots;
+    private int noOfSlotsOccupied;
 
     public ParkingLot(int noOfSlots) {
-        slots = new ArrayList<>(noOfSlots);
+        this.noOfSlotsOccupied = 0;
         this.noOfSlots = noOfSlots;
     }
 
-    public void park(Car car) {
-        slots.add(car);
+    public void park() {
+        noOfSlotsOccupied++;
     }
 
     public boolean isFull() {
-        return slots.size() >= noOfSlots;
+        return noOfSlotsOccupied >= noOfSlots;
     }
 
 
