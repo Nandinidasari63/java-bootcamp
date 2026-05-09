@@ -11,14 +11,14 @@ public class ParkingLotSystem {
         this.parkingLotsId = 0;
     }
 
-    public int addParkingLot(int noOfSlots) {
+    public int createParkingLot(int noOfSlots) {
         ParkingLot parkingLot = new ParkingLot(noOfSlots);
         parkingLotsId++;
         parkingLots.put(parkingLotsId, parkingLot);
         return parkingLotsId;
     }
 
-    public void park(int parkingLotId) {
+    public void park(int parkingLotId) throws SlotsFullException {
         ParkingLot parkingLot = parkingLots.get(parkingLotId);
         parkingLot.park();
     }

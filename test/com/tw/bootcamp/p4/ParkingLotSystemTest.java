@@ -7,16 +7,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParkingLotSystemTest {
     @Test
     void shouldAddANewParkingLot() {
-        ParkingLotSystem parkingLots = new ParkingLotSystem();
-        int lotId = parkingLots.addParkingLot(3);
-       assertFalse( parkingLots.isFull(lotId));
+        ParkingLotSystem parkingLotSystem = new ParkingLotSystem();
+        int lotId = parkingLotSystem.createParkingLot(3);
+        assertFalse(parkingLotSystem.isFull(lotId));
     }
 
     @Test
-    void shouldParkACar() {
-        ParkingLotSystem parkingLots = new ParkingLotSystem();
-        int lotId = parkingLots.addParkingLot(1);
-        parkingLots.park(lotId);
-        assertTrue(parkingLots.isFull(1));
+    void shouldParkACar() throws SlotsFullException {
+        ParkingLotSystem parkingLotSystem = new ParkingLotSystem();
+        int lotId = parkingLotSystem.createParkingLot(1);
+        parkingLotSystem.park(lotId);
+        assertTrue(parkingLotSystem.isFull(1));
     }
+
+
 }

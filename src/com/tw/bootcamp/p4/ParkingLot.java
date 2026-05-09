@@ -11,7 +11,10 @@ public class ParkingLot {
         this.noOfSlots = noOfSlots;
     }
 
-    public void park() {
+    public void park() throws SlotsFullException {
+        if (isFull()) {
+            throw new SlotsFullException("No slots available");
+        }
         noOfSlotsOccupied++;
     }
 
