@@ -20,5 +20,11 @@ class ParkingLotSystemTest {
         assertTrue(parkingLotSystem.isFull(1));
     }
 
+    @Test
+    void shouldProvideDisplay() {
+        ParkingLotSystem parkingLotSystem = new ParkingLotSystem();
+        parkingLotSystem.createParkingLot(2);
+        assertEquals("1 : ParkingLot{noOfSlots=2, noOfSlotsOccupied=0}", parkingLotSystem.display());
 
+    }
 }

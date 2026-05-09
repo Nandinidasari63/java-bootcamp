@@ -18,6 +18,14 @@ public class ParkingLot {
         noOfSlotsOccupied++;
     }
 
+    @Override
+    public String toString() {
+        return "ParkingLot{" +
+                "noOfSlots=" + noOfSlots +
+                ", noOfSlotsOccupied=" + noOfSlotsOccupied +
+                '}';
+    }
+
     public boolean isFull() {
         return noOfSlotsOccupied >= noOfSlots;
     }

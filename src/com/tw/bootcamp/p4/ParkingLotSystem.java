@@ -1,6 +1,7 @@
 package com.tw.bootcamp.p4;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ParkingLotSystem {
     private final HashMap<Integer, ParkingLot> parkingLots;
@@ -26,6 +27,16 @@ public class ParkingLotSystem {
     public boolean isFull(int parkingLotId) {
         ParkingLot parkingLot = parkingLots.get(parkingLotId);
         return parkingLot.isFull();
+    }
+
+    public String display(){
+        StringBuilder view = new StringBuilder();
+        for (Map.Entry<Integer, ParkingLot> parkingLotEntry: parkingLots.entrySet()){
+            view.append("%d : %s".formatted(parkingLotEntry.getKey(), parkingLotEntry.getValue()));
+
+        }
+
+        return view.toString();
     }
 
 
