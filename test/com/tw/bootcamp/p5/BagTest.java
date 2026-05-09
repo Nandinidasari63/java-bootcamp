@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BagTest {
+
     @Test
-    void shouldAddABall() {
+    void shouldAddABall() throws BagSizeOverflowException {
         Bag bag = new Bag();
         bag.addBall();
 
@@ -14,5 +15,16 @@ class BagTest {
         anotherBag.addBall();
 
         assertEquals(bag, anotherBag);
+    }
+
+    @Test
+    void shouldNotAddWhenBagIsFull() throws BagSizeOverflowException {
+        Bag bag = new Bag(2);
+
+        bag.addBall();
+        bag.addBall();
+
+        assertThrows(BagSizeOverflowException.class, bag::addBall);
+
     }
 }
